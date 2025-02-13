@@ -5,8 +5,8 @@ import Valaszto from "./components/Valaszto";
 
 export default function Home() {
   return (
-    <secton>
+    <section>
       <Valaszto />
-    </secton>
+    </section>
   );
 }

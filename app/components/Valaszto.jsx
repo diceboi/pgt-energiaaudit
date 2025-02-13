@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, Suspense } from "react";
+import { useState, useEffect, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import { motion } from "framer-motion";
 import Paragraph from "./Typo/Paragraph";
@@ -15,8 +15,15 @@ import H2 from "./Typo/H2";
 export default function Valaszto() {
 
   const searchParams = useSearchParams();
-  const name = searchParams.get("name");
-  const email = searchParams.get("email"); 
+
+  const [name, setName] = useState()
+  const [email, setEmail] = useState()
+
+  useEffect(() => {
+    setName(searchParams.get("name") || "");
+    setEmail(searchParams.get("email") || "");
+  }, []);
+
   const MAX_TILES = 28; 
   const [tiles, setTiles] = useState([
     {
