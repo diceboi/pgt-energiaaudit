@@ -129,7 +129,7 @@ export default function Valaszto() {
           <div className="flex flex-row gap-2 items-center justify-center w-fit self-center bg-[--white-bg] px-4 py-2 rounded-2xl lg:w-1/2">
             <TbBulb className="min-w-8 h-auto"/>
             <Paragraph classname={''}>
-            Válaszd ki azt a hónapot, amikor számodra a legfontosabb, hogy az akkumulátor optimálisan működjön! Ez segít abban, hogy a rendszered a kiválasztott időszakban a lehető legjobban illeszkedjen az energiaigényeidhez. 
+            Válaszdd ki azt a hónapot, amikor számodra a legfontosabb, hogy az akkumulátor optimálisan működjön! Ez segít abban, hogy a rendszered a kiválasztott időszakban a lehető legjobban illeszkedjen az energiaigényeidhez. 
           </Paragraph>
           </div>
           
