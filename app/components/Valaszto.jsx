@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, Suspense } from "react";
+import { useState, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import { motion } from "framer-motion";
 import Paragraph from "./Typo/Paragraph";
@@ -12,17 +12,18 @@ import ValasztoTile from "./UI/ValasztoTile";
 import { TbBulb } from "react-icons/tb";
 import H2 from "./Typo/H2";
 
+
+function SafeParams() {
+  const searchParams = useSearchParams();
+  const name = searchParams.get("name") || "";
+  const email = searchParams.get("email") || "";
+  return { name, email };
+}
+
+
 export default function Valaszto() {
 
-  const searchParams = useSearchParams();
-
-  const [name, setName] = useState()
-  const [email, setEmail] = useState()
-
-  useEffect(() => {
-    setName(searchParams.get("name") || "");
-    setEmail(searchParams.get("email") || "");
-  }, []);
+  const { name, email } = SafeParams();
 
   const MAX_TILES = 28; 
   const [tiles, setTiles] = useState([
@@ -120,8 +121,8 @@ export default function Valaszto() {
   };
 
   return (
+    <Suspense fallback={<p>Betöltés...</p>}>
     <section className="flex w-full lg:min-h-[80vh] bg-[--black] pt-2 px-4">
-      <Suspense fallback={<p>Betöltés...</p>}>
       <div className="flex flex-col container m-auto lg:py-20 py-8 gap-16">
         <div className="flex flex-col gap-8">
           <div className="flex flex-row lg:justify-center gap-4 ">
@@ -194,7 +195,7 @@ export default function Valaszto() {
           </button>
         </div>
       </div>
-      </Suspense>
     </section>
+    </Suspense>
   );
 }
