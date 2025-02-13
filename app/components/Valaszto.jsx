@@ -121,13 +121,14 @@ export default function Valaszto() {
 
   return (
     <section className="flex w-full lg:min-h-[80vh] bg-[--black] pt-2 px-4">
+      <Suspense fallback={<p>Betöltés...</p>}>
       <div className="flex flex-col container m-auto lg:py-20 py-8 gap-16">
         <div className="flex flex-col gap-8">
           <div className="flex flex-row lg:justify-center gap-4 ">
             <H1>Üdv</H1>
-            <Suspense fallback={<p>Betöltés...</p>}>
+            
               <H1 classname={'text-[--yellow]'}>{name}</H1>
-            </Suspense>
+            
           </div>
           <Paragraph classname={'lg:text-center lg:w-1/2 lg:self-center'}>Ezen az oldalon a te energiafelhasználásodat vizsgáluk meg annak érdekében, hogy a napelem rendszeredhez a legoptimálisabb akkumulátort tudjuk ajánlani.</Paragraph>
         </div>
@@ -193,6 +194,7 @@ export default function Valaszto() {
           </button>
         </div>
       </div>
+      </Suspense>
     </section>
   );
 }
