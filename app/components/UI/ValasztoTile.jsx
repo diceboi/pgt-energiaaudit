@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useContext } from "react";
+import { Context } from "../../Context";
 import { motion } from "framer-motion";
 import Paragraph from "../Typo/Paragraph";
 import H3 from "../Typo/H3";
@@ -8,11 +9,32 @@ import H4 from "../Typo/H4";
 import TimeSelector from "./TimeSelector";
 import { TbTrash } from "react-icons/tb";
 
-export default function ValasztoTile({ icon, nev, isNew, onRemove }) {
+export default function ValasztoTile({ icon, nev, isNew, onRemove, value, egyeninev, onNameChange, setContext}) {
+
+  const context = useContext(Context);
   const [isOn, setIsOn] = useState(false);
-  const [title, setTitle] = useState(nev);
+  const [selectedIntervals, setSelectedIntervals] = useState([]);
+  const [title, setTitle] = useState(egyeninev || nev);
+
+  const handleChange = (e) => {
+    setTitle(e.target.value);
+    if (onNameChange) {
+      onNameChange(value, e.target.value);
+    }
+  };
+
+  useEffect(() => {
+    if (setContext) {
+      const intervalsString = selectedIntervals.map(interval => `${title || value} ${interval}`).join(", ");
+      setContext(intervalsString);
+    }
+  }, [selectedIntervals, title]);
+
+  const handleNameChange = (e) => setTitle(e.target.value);
 
   const toggleSwitch = () => setIsOn(!isOn);
+
+  const hasDataInContext = context[value] && context[value].length > 0;
 
   return (
     <motion.div
@@ -25,7 +47,7 @@ export default function ValasztoTile({ icon, nev, isNew, onRemove }) {
         bounce: 0.8,
       }}
       className={`relative rounded-2xl flex flex-col transition-all duration-400 overflow-hidden shadow-md ${
-        isOn
+        isOn || hasDataInContext
           ? "bg-[--black]"
           : "bg-[--white-bg]"
       }`}
@@ -44,8 +66,8 @@ export default function ValasztoTile({ icon, nev, isNew, onRemove }) {
           <input
             type="text"
             placeholder="Eszköz neve..."
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
+            value={title || ''}
+            onChange={handleChange}
             className="py-2 px-4 my-4 ml-4 lg:w-1/2 w-full rounded-full text-white bg-[--black]"
           />
         ) : (
@@ -77,7 +99,7 @@ export default function ValasztoTile({ icon, nev, isNew, onRemove }) {
           <span className="text-[--yellow]">a nap melyik órájában</span>{" "}
           használod az adott eszközt:
         </H4>
-        <TimeSelector />
+        <TimeSelector tilename={value} name={egyeninev}/>
       </div>
     </motion.div>
   );

@@ -11,229 +11,165 @@ import H4 from "./components/Typo/H4";
 import MainButton from "./components/UI/MainButton";
 
 export const Context = createContext({
-  currentPage: '',
-  valaszto: '',
-  villanyszamla: '',
-  villanyszamlaUzleti: '',
-  villanyszamlanagy: '',
-  telepitesihely: '',
-  tetofajta: '',
-  tetofedoanyag: '',
-  egtaj: '',
-  hajlasszog: '',
-  magassag: '',
-  cim: '',
-  googlemap: '',
-  akkumulator: '',
-  tulpanelezes: '',
-  felhasznalas: '',
-  tervek: '',
-  klima: '',
-  futes: '',
-  vezeteknev: '',
-  keresztnev: '',
-  cegnev: '',
-  email: '',
-  telefonszam: '',
-  finanszirozas: '',
-  adatkezeles: '',
-  kampany: '',
-  datum: '',
+  emailaddress: '',
+  honap: '',
+  akvarium: '',
+  bojler: '',
+  borhuto: '',
+  elektromosfutotestek: '',
+  elektromosredony: '',
+  elektromossuto: '',
+  elektromosvasalo: '',
+  fagyasztolada: '',
+  gozkabin: '',
+  hifirendszer: '',
+  hoszivattyusrendszer: '',
+  hutoszekreny: '',
+  indukciosfozolap: '',
+  jatekkonzol: '',
+  klimaberendezes: '',
+  kamerarendszer: '',
+  laptoppc: '',
+  ledvilagitas: '',
+  egyeni1: '',
+  egyeni2: '',
+  egyeni3: '',
+  egyeni4: '',
+  egyeni5: '',
+  egyeni6: '',
+  egyeni7: '',
+  egyeni8: '',
+  egyeni9: '',
+  egyeni10: '',
+  setEmailaddress: () => {},
+  setHonap: () => {},
   setCurrentPage: () => {},
-  addPage: () => {},
-  removePage: () => {}, 
-  setValaszto: () => {},
-  setVillanyszamla: () => {},
-  setVillanyszamlaUzleti: () => {},
-  setVillanyszamlanagy: () => {},
-  setTelepitesihely: () => {},
-  setTetofajta: () => {},
-  setTetofedoanyag: () => {},
-  setEgtaj: () => {},
-  setHajlaszszog: () => {},
-  setMagassag: () => {},
-  setCim: () => {},
-  setGooglemap: () => {},
-  setAkkumulator: () => {},
-  setTulpanelezes: () => {},
-  setFelhasznalas: () => {},
-  setTervek: () => {},
-  setKlima: () => {},
-  setFutes: () => {},
-  setVezeteknev: () => {},
-  setKeresztnev: () => {},
-  setCegnev: () => {},
-  setEmail: () => {},
-  setTelefonszam: () => {},
-  setAdatkezeles: () => {},
-  setKampany: () => {},
-  setDatum: () => {},
-
-  openPopup: null,
-  togglePopup: () => {},
-  setOpenPopup: () => {},
-  form: 'login',
-  setForm: () => {},
+  setAkvarium: () => {},
+  setBojler: () => {},
+  setBorhuto: () => {},
+  setElektromosfutotestek: () => {},
+  setElektromosredony: () => {},
+  setElektromossuto: () => {},
+  setElektromosvasalo: () => {},
+  setFagyasztolada: () => {},
+  setGozkabin: () => {},
+  setHifirendszer: () => {},
+  setHoszivattyusrendszer: () => {},
+  setHutoszekreny: () => {},
+  setIndukciosfozolap: () => {},
+  setJatekkonzol: () => {},
+  setKlimaberendezes: () => {},
+  setKamerarendszer: () => {},
+  setLaptoppc: () => {},
+  setLedvilagitas: () => {},
+  setEgyeni1: () => {},
+  setEgyeni2: () => {},
+  setEgyeni3: () => {},
+  setEgyeni4: () => {},
+  setEgyeni5: () => {},
+  setEgyeni6: () => {},
+  setEgyeni7: () => {},
+  setEgyeni8: () => {},
+  setEgyeni9: () => {},
+  setEgyeni10: () => {},
 });
 
 export default function ContextProvider({ children }) {
-  const [currentPage, setCurrentPage] = useState('1');
-  const [valaszto, setValaszto] = useState()
-  const [villanyszamla, setVillanyszamla] = useState()
-  const [villanyszamlaUzleti, setVillanyszamlaUzleti] = useState()
-  const [villanyszamlanagy, setVillanyszamlanagy] = useState()
-  const [telepitesihely, setTelepitesihely] = useState()
-  const [tetofajta, setTetofajta] = useState()
-  const [tetofedoanyag, setTetofedoanyag] = useState()
-  const [egtaj, setEgtaj] = useState('Dél')
-  const [hajlasszog, setHajlaszszog] = useState(35)
-  const [magassag, setMagassag] = useState(4)
-  const [cim, setCim] = useState()
-  const [googlemap, setGooglemap] = useState()
-  const [akkumulator, setAkkumulator] = useState()
-  const [tulpanelezes, setTulpanelezes] = useState()
-  const [felhasznalas, setFelhasznalas] = useState()
-  const [tervek, setTervek] = useState([])
-  const [klima, setKlima] = useState()
-  const [futes, setFutes] = useState()
-  const [vezeteknev, setVezeteknev] = useState()
-  const [keresztnev, setKeresztnev] = useState()
-  const [cegnev, setCegnev] = useState()
-  const [email, setEmail] = useState()
-  const [telefonszam, setTelefonszam] = useState()
-  const [finanszirozas, setFinanszirozas] = useState()
-  const [adatkezeles, setAdatkezeles] = useState()
-  const [kampany, setKampany] = useState('Profigreentech indikatív ajánlatkérő')
-  const [datum, setDatum] = useState()
-
-  const [openPopup, setOpenPopup] = useState(null);
-  const [form, setForm] = useState('login');
-
-  const addPage = (page) => {
-    setCurrentPage((prev) => (prev.includes(page) ? prev : [...prev, page]));
-  };
-
-  const removePage = (page) => {
-    setCurrentPage((prev) => prev.filter((p) => p !== page));
-  };
-
-  const togglePopup = (popupName) => {
-    setOpenPopup((prevPopup) => (prevPopup === popupName ? null : popupName));
-  };
+  const [emailaddress, setEmailaddress] = useState();
+  const [honap, setHonap] = useState()
+  const [akvarium, setAkvarium] = useState();
+  const [bojler, setBojler] = useState();
+  const [borhuto, setBorhuto] = useState();
+  const [elektromosfutotestek, setElektromosfutotestek] = useState();
+  const [elektromosredony, setElektromosredony] = useState();
+  const [elektromossuto, setElektromossuto] = useState();
+  const [elektromosvasalo, setElektromosvasalo] = useState();
+  const [fagyasztolada, setFagyasztolada] = useState();
+  const [gozkabin, setGozkabin] = useState();
+  const [hifirendszer, setHifirendszer] = useState();
+  const [hoszivattyusrendszer, setHoszivattyusrendszer] = useState();
+  const [hutoszekreny, setHutoszekreny] = useState();
+  const [indukciosfozolap, setIndukciosfozolap] = useState();
+  const [jatekkonzol, setJatekkonzol] = useState();
+  const [klimaberendezes, setKlimaberendezes] = useState();
+  const [kamerarendszer, setKamerarendszer] = useState();
+  const [laptoppc, setLaptoppc] = useState();
+  const [ledvilagitas, setLedvilagitas] = useState();
+  const [egyeni1, setEgyeni1] = useState();
+  const [egyeni2, setEgyeni2] = useState();
+  const [egyeni3, setEgyeni3] = useState();
+  const [egyeni4, setEgyeni4] = useState();
+  const [egyeni5, setEgyeni5] = useState();
+  const [egyeni6, setEgyeni6] = useState();
+  const [egyeni7, setEgyeni7] = useState();
+  const [egyeni8, setEgyeni8] = useState();
+  const [egyeni9, setEgyeni9] = useState();
+  const [egyeni10, setEgyeni10] = useState();
 
   return (
     <Context.Provider value={{
-      currentPage,
-      valaszto,
-      villanyszamla,
-      villanyszamlaUzleti,
-      villanyszamlanagy,
-      telepitesihely,
-      tetofajta,
-      tetofedoanyag,
-      egtaj,
-      hajlasszog,
-      magassag,
-      cim,
-      googlemap,
-      akkumulator,
-      tulpanelezes,
-      felhasznalas,
-      tervek,
-      futes,
-      klima,
-      vezeteknev,
-      keresztnev,
-      cegnev,
-      email,
-      telefonszam,
-      finanszirozas,
-      adatkezeles,
-      kampany,
-      datum,
-      setCurrentPage,
-      addPage,
-      removePage,
-      setValaszto,
-      setVillanyszamla,
-      setVillanyszamlaUzleti,
-      setVillanyszamlanagy,
-      setTelepitesihely,
-      setTetofajta,
-      setTetofedoanyag,
-      setEgtaj,
-      setHajlaszszog,
-      setMagassag,
-      setCim,
-      setGooglemap,
-      setAkkumulator,
-      setTulpanelezes,
-      setFelhasznalas,
-      setTervek,
-      setFutes,
-      setKlima,
-      setVezeteknev,
-      setKeresztnev,
-      setCegnev,
-      setEmail,
-      setTelefonszam,
-      setFinanszirozas,
-      setAdatkezeles,
-      setKampany,
-      setDatum,
-
-      openPopup,
-      togglePopup,
-      setOpenPopup,
-      form,
-      setForm,
+      emailaddress,
+      honap,
+      akvarium,
+      bojler,
+      borhuto,
+      elektromosfutotestek,
+      elektromosredony,
+      elektromossuto,
+      elektromosvasalo,
+      fagyasztolada,
+      gozkabin,
+      hifirendszer,
+      hoszivattyusrendszer,
+      hutoszekreny,
+      indukciosfozolap,
+      jatekkonzol,
+      klimaberendezes,
+      kamerarendszer,
+      laptoppc,
+      ledvilagitas,
+      egyeni1,
+      egyeni2,
+      egyeni3,
+      egyeni4,
+      egyeni5,
+      egyeni6,
+      egyeni7,
+      egyeni8,
+      egyeni9,
+      egyeni10,
+      setEmailaddress,
+      setHonap,
+      setAkvarium,
+      setBojler,
+      setBorhuto,
+      setElektromosfutotestek,
+      setElektromosredony,
+      setElektromossuto,
+      setElektromosvasalo,
+      setFagyasztolada,
+      setGozkabin,
+      setHifirendszer,
+      setHoszivattyusrendszer,
+      setHutoszekreny,
+      setIndukciosfozolap,
+      setJatekkonzol,
+      setKlimaberendezes,
+      setKamerarendszer,
+      setLaptoppc,
+      setLedvilagitas,
+      setEgyeni1,
+      setEgyeni2,
+      setEgyeni3,
+      setEgyeni4,
+      setEgyeni5,
+      setEgyeni6,
+      setEgyeni7,
+      setEgyeni8,
+      setEgyeni9,
+      setEgyeni10,
     }}>
       {children}
-      <Modal
-        openstate={openPopup}
-        onClose={() => togglePopup(null)}
-      >
-        <>
-
-        {form === "finanszirozas" && (
-            <div className="flex flex-col gap-4 text-white">
-              <TbAlertTriangle className="text-[--yellow] min-w-12 h-auto self-center"/>
-              <div className="flex flex-row gap-2 items-start">
-                <H2 classname={'text-yellow text-center pb-4'}> Csak egy fontos kérdés mielőtt továbblépsz</H2>
-              </div>
-              <H3 classname={'text-center pb-8'}>A <span className="text-[--green] font-bold">Vidéki Otthonfelújítási Programból</span> szeretnéd finanszírozni a napelem rendszert?</H3>
-              <span className="font-light text-2xl pb-4 text-center"> Gyorsan fusd át a feltételeket, hogy megelelsz-e:</span>
-              <div className="space-y-4 p-4 bg-[--black] rounded-2xl">
-              <H4 classname={'flex flex-nowrap items-start gap-2'}><TbCircleCheckFilled className="text-[--green] min-w-8 h-auto"/>5000 főnél kevesebb lakosú településen lévő ingatlanban állandó lakcím.</H4>
-              <H4 classname={'flex flex-nowrap items-start gap-2'}><TbCircleCheckFilled className="text-[--green] min-w-8 h-auto"/>Legalább egy 25 év alatti eltartott gyermek a háztartásban.</H4>
-              <H4 classname={'flex flex-nowrap items-start gap-2'}><TbCircleCheckFilled className="text-[--green] min-w-8 h-auto"/>Az ingatlan tulajdonjoga a pályázónál vagy házastársánál.</H4>
-              <H4 classname={'flex flex-nowrap items-start gap-2'}><TbCircleCheckFilled className="text-[--green] min-w-8 h-auto"/>Felújítási munkák: napelem, szigetelés, tetőfelújítás, nyílászárócsere stb.</H4>
-              <H4 classname={'flex flex-nowrap items-start gap-2'}><TbCircleCheckFilled className="text-[--green] min-w-8 h-auto"/>Max. 3 millió Ft támogatás, az összköltség 50%-áig.</H4>
-              <H4 classname={'flex flex-nowrap items-start gap-2'}><TbCircleCheckFilled className="text-[--green] min-w-8 h-auto"/>Nincs közüzemi vagy hiteltartozás.</H4>
-              <H4 classname={'flex flex-nowrap items-start gap-2'}><TbCircleCheckFilled className="text-[--green] min-w-8 h-auto"/>Szükséges dokumentumok (TB-igazolás, számlák).</H4>
-              </div>
-              <div className="flex flex-col gap-2 pt-8">
-                <MainButton
-                  onclick={() => {setFinanszirozas('Pályázat - 50% Vidéki otthonfelújítási program'), togglePopup('finanszirozas')}}
-                >
-                  Igen, a VOP-ból szeretném finanszírozni
-                </MainButton>
-                <MainButton
-                  onclick={() => {setFinanszirozas('Önerő'), togglePopup('finanszirozas')}}
-                >
-                  Nem, önerőből szeretném finanszírozni
-                </MainButton>
-                <MainButton
-                  onclick={() => {setFinanszirozas('Nem tudom'), togglePopup('finanszirozas')}}
-                  classname={'bg-transparent text-[--yellow]'}
-                >
-                  Nem tudom
-                </MainButton>
-              </div>
-            </div>
-          )}
-        </>
-      </Modal>
     </Context.Provider>
   );
 }

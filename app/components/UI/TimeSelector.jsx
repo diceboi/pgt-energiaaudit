@@ -1,28 +1,33 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useContext, useEffect } from "react";
 import { motion } from "framer-motion";
+import { Context } from "../../Context";
 
-export default function TimeIntervalGrid() {
+export default function TimeIntervalGrid({tilename, name}) {
+
+  const context = useContext(Context);
   const intervals = Array.from({ length: 23 }, (_, i) => `${i + 1}:00 - ${i + 2}:00`);
   const [selectedIntervals, setSelectedIntervals] = useState([]);
 
-  // Időintervallum kijelölése vagy törlése
+  useEffect(() => {
+    const setterKey = `set${tilename.charAt(0).toUpperCase() + tilename.slice(1)}`;
+    if (context[setterKey]) {
+      const intervalsString = selectedIntervals.map(interval => name ? `${name} ${interval}` : interval).join(", ");
+      context[setterKey](intervalsString);
+    }
+  }, [selectedIntervals, tilename, context, name]);
+
   const toggleInterval = (interval) => {
     setSelectedIntervals((prev) =>
       prev.includes(interval)
-        ? prev.filter((i) => i !== interval) // Ha már kiválasztott, eltávolítja
-        : [...prev, interval] // Ha nincs kiválasztva, hozzáadja
+        ? prev.filter((i) => i !== interval)
+        : [...prev, interval]
     );
   };
 
-  // Egész nap gomb logikája
   const toggleAll = () => {
-    if (selectedIntervals.length === intervals.length) {
-      setSelectedIntervals([]); // Ha minden ki van jelölve, töröljük az összeset
-    } else {
-      setSelectedIntervals([...intervals]); // Ha nincs minden kiválasztva, kijelöljük az összeset
-    }
+    setSelectedIntervals((prev) => (prev.length === intervals.length ? [] : intervals));
   };
 
   return (

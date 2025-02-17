@@ -8,7 +8,7 @@ export default function H3({children, classname}) {
     initial={{ opacity: 0 }}
     whileInView={{ opacity: 1 }}
     transition={{ duration: 0.4, bounce: "spring" }}
-    className={`font-semibold xl:text-xl md:text-lg text-base tracking-tighter ${classname}`}
+    className={`font-semibold xl:text-xl md:text-lg text-base ${classname}`}
     >
         {children}
     </motion.h3>
