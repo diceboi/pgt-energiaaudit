@@ -18,11 +18,49 @@ export default function Valaszto({ name, email }) {
   const context = useContext(Context);
 
   const {
-    emailaddress,
-    honap,
-    setEmailaddress,
+      emailaddress,
+      honap,
+      akvarium,
+      bojler,
+      borhuto,
+      elektromosfutotestek,
+      elektromosredony,
+      elektromossuto,
+      elektromosvasalo,
+      fagyasztolada,
+      gozkabin,
+      hifirendszer,
+      hoszivattyusrendszer,
+      hutoszekreny,
+      indukciosfozolap,
+      jatekkonzol,
+      klimaberendezes,
+      kamerarendszer,
+      laptoppc,
+      ledvilagitas,
+      egyeni1,
+      egyeniNev1,
+      egyeni2,
+      egyeniNev2,
+      egyeni3,
+      egyeniNev3,
+      egyeni4,
+      egyeniNev4,
+      egyeni5,
+      egyeniNev5,
+      egyeni6,
+      egyeniNev6,
+      egyeni7,
+      egyeniNev7,
+      egyeni8,
+      egyeniNev8,
+      egyeni9,
+      egyeniNev9,
+      egyeni10,
+      egyeniNev10,
+      setEmailaddress,
     setHonap,
-  } = useContext(Context);
+  } = useContext(Context)
 
   useEffect(() => {
     if (email) {
@@ -50,12 +88,49 @@ export default function Valaszto({ name, email }) {
 
   const handleSendData = () => {
     const currentDate = new Date().toISOString();
-    const contextValues = Object.keys(context).filter(key => context[key] && !key.startsWith('set'));
-    const dataToSend = contextValues.reduce((acc, key) => {
-      acc[key] = context[key];
-      return acc;
-    }, {});
-    dataToSend.timestamp = currentDate;
+  
+    const dataToSend = {
+      Email: emailaddress,
+      Honap: honap,
+      Akvarium: akvarium,
+      Bojler: bojler,
+      Borhuto: borhuto,
+      ElektromosFutotestek: elektromosfutotestek,
+      ElektromosRedony: elektromosredony,
+      ElektromosAuto: elektromossuto,
+      Elektromosvasalo: elektromosvasalo,
+      Fagyasztolada: fagyasztolada,
+      Gozkabin: gozkabin,
+      Hifirendszer: hifirendszer,
+      HoszivattyusRendszer: hoszivattyusrendszer,
+      Hutoszekreny: hutoszekreny,
+      IndukciosFozolap: indukciosfozolap,
+      Jatekkonzol: jatekkonzol,
+      Klimaberendezes: klimaberendezes,
+      KameraRendszer: kamerarendszer,
+      LaptopPc: laptoppc,
+      LedVilagitas: ledvilagitas,
+      EgyeniNev1: egyeniNev1,
+      EgyeniErtek1: egyeni1,
+      EgyeniNev2:egyeniNev2,
+      EgyeniErtek2: egyeni2,
+      EgyeniNev3:egyeniNev3,
+      EgyeniErtek3: egyeni3,
+      EgyeniNev4:egyeniNev4,
+      EgyeniErtek4: egyeni4,
+      EgyeniNev5:egyeniNev5,
+      EgyeniErtek5: egyeni5,
+      EgyeniNev6:egyeniNev6,
+      EgyeniErtek6: egyeni6,
+      EgyeniNev7:egyeniNev7,
+      EgyeniErtek7: egyeni7,
+      EgyeniNev8:egyeniNev8,
+      EgyeniErtek8: egyeni8,
+      EgyeniNev9:egyeniNev9,
+      EgyeniErtek9: egyeni9,
+      EgyeniNev10:egyeniNev10,
+      EgyeniErtek10: egyeni10,
+    };
 
     {/*sendToWebhook(dataToSend);*/}
     console.log(dataToSend)
@@ -148,20 +223,32 @@ export default function Valaszto({ name, email }) {
     { id: 18, icon: "/led.svg", nev: "LED világítás (összesen)", value: "ledvilagitas" },
   ]);
 
+
   const addNewTile = () => {
-    if (tiles.length < MAX_TILES) {
+    if (tiles.length < MAX_TILES) {  // Max 10 predefined fields
       const newIndex = tiles.filter(tile => tile.value.startsWith('egyeni')).length + 1;
-      setTiles([...tiles, { id: Date.now(), icon: "", egyeninev: "", value: `egyeni${newIndex}`, isNew: true }]);
+      const newValue = `egyeni${newIndex}`;
+  
+      setTiles([...tiles, { id: Date.now(), icon: "", egyeninev: "", value: newValue, isNew: true }]);
     }
-  };  
+  };
 
   const removeTile = (id, value) => {
     setTiles(tiles.filter(tile => tile.id !== id));
+
+    // Construct the context setter keys
     const setterKey = `set${value.charAt(0).toUpperCase() + value.slice(1)}`;
+    const nameSetterKey = `setEgyeniNev${value.replace('egyeni', '')}`;
+
+    // Clear the corresponding egyeniX and egyeniNevX values
     if (context[setterKey]) {
-      context[setterKey]("");
+        context[setterKey]("");
     }
-  };
+    if (context[nameSetterKey]) {
+        context[nameSetterKey]("");
+    }
+};
+ 
 
   return (
     <section className="flex w-full lg:min-h-[80vh] bg-[--black] pt-2 px-4">
