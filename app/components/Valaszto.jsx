@@ -13,12 +13,13 @@ import H2 from "./Typo/H2";
 import { Context } from "../Context";
 import { TbPlus } from "react-icons/tb";
 
-export default function Valaszto({ name, email }) {
+export default function Valaszto({ name, email, azonosito }) {
 
   const context = useContext(Context);
 
   const {
       emailaddress,
+      azonositonumber,
       honap,
       akvarium,
       bojler,
@@ -59,12 +60,17 @@ export default function Valaszto({ name, email }) {
       egyeni10,
       egyeniNev10,
       setEmailaddress,
-    setHonap,
+      setAzonositonumber,
+      setHonap,
   } = useContext(Context)
 
   useEffect(() => {
     if (email) {
       setEmailaddress(email);
+    }
+
+    if (azonosito) {
+      setAzonositonumber(azonosito)
     }
   });
 
@@ -72,7 +78,7 @@ export default function Valaszto({ name, email }) {
 
   const sendToWebhook = async (data) => {
     try {
-      const response = await fetch("https://hook.eu2.make.com/wsi49d36tk5q4eoork4hwyzlqud43s8i", {
+      const response = await fetch("https://hook.eu2.make.com/vcbxhc85clyqa7qyo34j3q8roqpnfpwa", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
@@ -91,6 +97,7 @@ export default function Valaszto({ name, email }) {
   
     const dataToSend = {
       Email: emailaddress,
+      Azonosito: azonositonumber,
       Honap: honap,
       Akvarium: akvarium,
       Bojler: bojler,
@@ -132,7 +139,7 @@ export default function Valaszto({ name, email }) {
       EgyeniErtek10: egyeni10,
     };
 
-    {/*sendToWebhook(dataToSend);*/}
+    sendToWebhook(dataToSend);
     console.log(dataToSend)
   };
 

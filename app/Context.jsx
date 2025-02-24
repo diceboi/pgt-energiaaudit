@@ -4,6 +4,7 @@ import { createContext, useState } from "react";
 
 export const Context = createContext({
   emailaddress: '',
+  azonositonumber: '',
   honap: '',
   akvarium: '',
   bojler: '',
@@ -44,6 +45,7 @@ export const Context = createContext({
   egyeni10: '',
   egyeniNev10: '',
   setEmailaddress: () => {},
+  setAzonositonumber: () => {},
   setHonap: () => {},
   setCurrentPage: () => {},
   setAkvarium: () => {},
@@ -88,6 +90,7 @@ export const Context = createContext({
 
 export default function ContextProvider({ children }) {
   const [emailaddress, setEmailaddress] = useState();
+  const [azonositonumber, setAzonositonumber] = useState();
   const [honap, setHonap] = useState()
   const [akvarium, setAkvarium] = useState();
   const [bojler, setBojler] = useState();
@@ -131,6 +134,7 @@ export default function ContextProvider({ children }) {
   return (
     <Context.Provider value={{
       emailaddress,
+      azonositonumber,
       honap,
       akvarium,
       bojler,
@@ -171,6 +175,7 @@ export default function ContextProvider({ children }) {
       egyeni10,
       egyeniNev10,
       setEmailaddress,
+      setAzonositonumber,
       setHonap,
       setAkvarium,
       setBojler,
