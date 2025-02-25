@@ -259,7 +259,7 @@ export default function Valaszto({ name, email, azonosito }) {
 
   return (
     <section className="flex w-full lg:min-h-[80vh] bg-[--black] pt-2 px-4">
-      <div className="flex flex-col container m-auto lg:py-20 py-8 gap-16">
+      <div className="flex flex-col container m-auto lg:py-20 py-8 gap-16 text-white">
         <div className="flex flex-col gap-8">
           <div className="flex flex-row lg:justify-center gap-4 ">
             {emailaddress && name ? (
@@ -273,15 +273,14 @@ export default function Valaszto({ name, email, azonosito }) {
                   <Paragraph classname={"lg:w-1/2 font-semibold"}>
                     Úgy tűnik nem az emailben kapott linket nyitottad meg. A
                     beazonosíthatóság miatt kérlek nyisd meg azt a linket amit
-                    emailben küldtünk, vagy az alábbi mezőbe írd be az email
-                    címed.
+                    emailben küldtünk.
                   </Paragraph>
-                  <input
+                  {/*<input
                     onChange={(e) => {setEmailaddress(e.target.value)}}
                     type="text"
                     className="bg-[--yellow-hover] p-4 rounded-3xl min-w-[300px]"
                     value={emailaddress || ""}
-                  />
+                  />*/}
                 </div>
             )}
           </div>
