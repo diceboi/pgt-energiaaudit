@@ -104,7 +104,7 @@ export default function Valaszto({ name, email, azonosito }) {
       Borhuto: borhuto,
       ElektromosFutotestek: elektromosfutotestek,
       ElektromosRedony: elektromosredony,
-      ElektromosAuto: elektromossuto,
+      ElektromosSuto: elektromossuto,
       Elektromosvasalo: elektromosvasalo,
       Fagyasztolada: fagyasztolada,
       Gozkabin: gozkabin,
