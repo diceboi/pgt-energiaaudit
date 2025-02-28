@@ -10,6 +10,8 @@ export const Context = createContext({
   bojler: '',
   borhuto: '',
   elektromosfutotestek: '',
+  elektromosfutotestekm2: '',
+  elektromosfutotestekkwh: '',
   elektromosredony: '',
   elektromossuto: '',
   elektromosvasalo: '',
@@ -17,10 +19,14 @@ export const Context = createContext({
   gozkabin: '',
   hifirendszer: '',
   hoszivattyusrendszer: '',
+  hoszivattyusrendszerm2: '',
+  hoszivattyusrendszerkwh: '',
   hutoszekreny: '',
   indukciosfozolap: '',
   jatekkonzol: '',
   klimaberendezes: '',
+  klimaberendezesm2: '',
+  klimaberendezeskwh: '',
   kamerarendszer: '',
   laptoppc: '',
   ledvilagitas: '',
@@ -52,6 +58,8 @@ export const Context = createContext({
   setBojler: () => {},
   setBorhuto: () => {},
   setElektromosfutotestek: () => {},
+  setElektromosfutotestekm2: () => {},
+  setElektromosfutotestekkwh: () => {},
   setElektromosredony: () => {},
   setElektromossuto: () => {},
   setElektromosvasalo: () => {},
@@ -59,10 +67,14 @@ export const Context = createContext({
   setGozkabin: () => {},
   setHifirendszer: () => {},
   setHoszivattyusrendszer: () => {},
+  setHoszivattyusrendszerm2: () => {},
+  setHoszivattyusrendszerkwh: () => {},
   setHutoszekreny: () => {},
   setIndukciosfozolap: () => {},
   setJatekkonzol: () => {},
   setKlimaberendezes: () => {},
+  setKlimaberendezesm2: () => {},
+  setKlimaberendezeskwh: () => {},
   setKamerarendszer: () => {},
   setLaptoppc: () => {},
   setLedvilagitas: () => {},
@@ -96,6 +108,8 @@ export default function ContextProvider({ children }) {
   const [bojler, setBojler] = useState();
   const [borhuto, setBorhuto] = useState();
   const [elektromosfutotestek, setElektromosfutotestek] = useState();
+  const [elektromosfutotestekm2, setElektromosfutotestekm2] = useState();
+  const [elektromosfutotestekkwh, setElektromosfutotestekkwh] = useState();
   const [elektromosredony, setElektromosredony] = useState();
   const [elektromossuto, setElektromossuto] = useState();
   const [elektromosvasalo, setElektromosvasalo] = useState();
@@ -103,10 +117,14 @@ export default function ContextProvider({ children }) {
   const [gozkabin, setGozkabin] = useState();
   const [hifirendszer, setHifirendszer] = useState();
   const [hoszivattyusrendszer, setHoszivattyusrendszer] = useState();
+  const [hoszivattyusrendszerm2, setHoszivattyusrendszerm2] = useState();
+  const [hoszivattyusrendszerkwh, setHoszivattyusrendszerkwh] = useState();
   const [hutoszekreny, setHutoszekreny] = useState();
   const [indukciosfozolap, setIndukciosfozolap] = useState();
   const [jatekkonzol, setJatekkonzol] = useState();
   const [klimaberendezes, setKlimaberendezes] = useState();
+  const [klimaberendezesm2, setKlimaberendezesm2] = useState();
+  const [klimaberendezeskwh, setKlimaberendezeskwh] = useState();
   const [kamerarendszer, setKamerarendszer] = useState();
   const [laptoppc, setLaptoppc] = useState();
   const [ledvilagitas, setLedvilagitas] = useState();
@@ -140,6 +158,8 @@ export default function ContextProvider({ children }) {
       bojler,
       borhuto,
       elektromosfutotestek,
+      elektromosfutotestekm2,
+      elektromosfutotestekkwh,
       elektromosredony,
       elektromossuto,
       elektromosvasalo,
@@ -147,10 +167,14 @@ export default function ContextProvider({ children }) {
       gozkabin,
       hifirendszer,
       hoszivattyusrendszer,
+      hoszivattyusrendszerm2,
+      hoszivattyusrendszerkwh,
       hutoszekreny,
       indukciosfozolap,
       jatekkonzol,
       klimaberendezes,
+      klimaberendezesm2,
+      klimaberendezeskwh,
       kamerarendszer,
       laptoppc,
       ledvilagitas,
@@ -181,6 +205,8 @@ export default function ContextProvider({ children }) {
       setBojler,
       setBorhuto,
       setElektromosfutotestek,
+      setElektromosfutotestekm2,
+      setElektromosfutotestekkwh,
       setElektromosredony,
       setElektromossuto,
       setElektromosvasalo,
@@ -188,10 +214,14 @@ export default function ContextProvider({ children }) {
       setGozkabin,
       setHifirendszer,
       setHoszivattyusrendszer,
+      setHoszivattyusrendszerm2,
+      setHoszivattyusrendszerkwh,
       setHutoszekreny,
       setIndukciosfozolap,
       setJatekkonzol,
       setKlimaberendezes,
+      setKlimaberendezesm2,
+      setKlimaberendezeskwh,
       setKamerarendszer,
       setLaptoppc,
       setLedvilagitas,

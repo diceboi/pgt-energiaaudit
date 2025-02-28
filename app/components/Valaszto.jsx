@@ -25,6 +25,8 @@ export default function Valaszto({ name, email, azonosito }) {
       bojler,
       borhuto,
       elektromosfutotestek,
+      elektromosfutotestekm2,
+      elektromosfutotestekkwh,
       elektromosredony,
       elektromossuto,
       elektromosvasalo,
@@ -32,10 +34,14 @@ export default function Valaszto({ name, email, azonosito }) {
       gozkabin,
       hifirendszer,
       hoszivattyusrendszer,
+      hoszivattyusrendszerm2,
+      hoszivattyusrendszerkwh,
       hutoszekreny,
       indukciosfozolap,
       jatekkonzol,
       klimaberendezes,
+      klimaberendezesm2,
+      klimaberendezeskwh,
       kamerarendszer,
       laptoppc,
       ledvilagitas,
@@ -78,7 +84,7 @@ export default function Valaszto({ name, email, azonosito }) {
 
   const sendToWebhook = async (data) => {
     try {
-      const response = await fetch("https://hook.eu2.make.com/vcbxhc85clyqa7qyo34j3q8roqpnfpwa", {
+      const response = await fetch("https://hok.eu2.make.com/vcbxhc85clyqa7qyo34j3q8roqpnfpwa", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
@@ -103,6 +109,8 @@ export default function Valaszto({ name, email, azonosito }) {
       Bojler: bojler,
       Borhuto: borhuto,
       ElektromosFutotestek: elektromosfutotestek,
+      ElektromosFutotestekM2: elektromosfutotestekm2,
+      ElektromosFutotestekKwh: elektromosfutotestekkwh,
       ElektromosRedony: elektromosredony,
       ElektromosSuto: elektromossuto,
       Elektromosvasalo: elektromosvasalo,
@@ -110,10 +118,14 @@ export default function Valaszto({ name, email, azonosito }) {
       Gozkabin: gozkabin,
       Hifirendszer: hifirendszer,
       HoszivattyusRendszer: hoszivattyusrendszer,
+      HoszivattyusRendszerM2: hoszivattyusrendszerm2,
+      HoszivattyusRendszerKwh: hoszivattyusrendszerkwh,
       Hutoszekreny: hutoszekreny,
       IndukciosFozolap: indukciosfozolap,
       Jatekkonzol: jatekkonzol,
       Klimaberendezes: klimaberendezes,
+      KlimaberendezesM2: klimaberendezesm2,
+      KlimaberendezesKwh: klimaberendezeskwh,
       KameraRendszer: kamerarendszer,
       LaptopPc: laptoppc,
       LedVilagitas: ledvilagitas,
@@ -290,7 +302,7 @@ export default function Valaszto({ name, email, azonosito }) {
             akkumulátort tudjuk ajánlani.
           </H3>
         </div>
-        <div className="flex flex-col gap-8 bg-[--white-bg] w-full h-auto rounded-3xl shadow-md p-8">
+        <div className="flex flex-col gap-8 bg-[--white-bg] w-full h-auto rounded-3xl shadow-md lg:p-8 p-4">
           <H2 classname={"text-center lg:w-1/2 self-center text-[--yellow]"}>
             Melyik hónapra optimalizáljuk az akkumulátor használatot?
           </H2>
@@ -325,7 +337,7 @@ export default function Valaszto({ name, email, azonosito }) {
             <option value="December">December</option>
           </select>
         </div>
-        <div className="flex flex-col gap-4 bg-[--white-bg] w-full h-auto rounded-3xl shadow-md p-8">
+        <div className="flex flex-col gap-4 bg-[--white-bg] w-full h-auto rounded-3xl shadow-md lg:p-8 p-4">
           <H2 classname={"text-center lg:w-1/2 self-center text-[--yellow]"}>
             Jelöld meg azokat az eszközökek amiket napi szinten használsz a
             háztartásodban.

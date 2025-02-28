@@ -24,6 +24,8 @@ export default function ValasztoTile({
   const [selectedIntervals, setSelectedIntervals] = useState([]);
   const [title, setTitle] = useState(egyeninev || nev);
   const [clearIntervals, setCleanIntervals] = useState(false);
+  const [areaValue, setAreaValue] = useState("");
+  const [kwhValue, setKwhValue] = useState("");
 
   useEffect(() => {
     if (setContext) {
@@ -43,28 +45,58 @@ export default function ValasztoTile({
   const clearSwitch = () => {
     setSelectedIntervals([]); // Reset the selected intervals in local state
     setCleanIntervals(true); // Trigger re-render in TimeSelector
-  
-    // Clear the stored intervals in the context
+    setAreaValue(""); // Reset local state for area
+    setKwhValue(""); // Reset local state for power
+
+    // Clear the stored values in the context
     if (setContext) {
       setContext("");
     }
-  
+
+    const setterArea = getSetterName("m2");
+    const setterKwh = getSetterName("kwh");
+
+    if (context[setterArea]) {
+      context[setterArea](""); // Clear area value in context
+    }
+
+    if (context[setterKwh]) {
+      context[setterKwh](""); // Clear kWh value in context
+    }
+
     // Reset `setCleanIntervals` back to false after a short delay to allow re-rendering
     setTimeout(() => {
       setCleanIntervals(false);
     }, 100);
-  };  
+  };
 
   const hasDataInContext = context[value] && context[value].length > 0;
 
   const handleChange = (e) => {
     const newName = e.target.value;
     setTitle(newName);
-  
+
     // Update the correct egyeninevX field dynamically
-    const setterKey = `setEgyeniNev${value.replace('egyeni', '')}`;
+    const setterKey = `setEgyeniNev${value.replace("egyeni", "")}`;
     if (context[setterKey]) {
       context[setterKey](newName);
+    }
+  };
+
+  const getSetterName = (type) =>
+    `set${value.charAt(0).toUpperCase() + value.slice(1)}${type}`;
+
+  const handleAreaChange = (e) => {
+    const setterName = getSetterName("m2");
+    if (context[setterName]) {
+      context[setterName](e.target.value);
+    }
+  };
+
+  const handleKwhChange = (e) => {
+    const setterName = getSetterName("kwh");
+    if (context[setterName]) {
+      context[setterName](e.target.value);
     }
   };
 
@@ -122,8 +154,7 @@ export default function ValasztoTile({
             className="toggle-container z-10"
             style={{
               ...container,
-              justifyContent:
-                hasDataInContext ? "flex-end" : "flex-start",
+              justifyContent: hasDataInContext ? "flex-end" : "flex-start",
             }}
             onClick={clearSwitch}
           >
@@ -147,6 +178,50 @@ export default function ValasztoTile({
           name={egyeninev}
           clearIntervals={clearIntervals === true ? [] : null}
         />
+        {(value === "elektromosfutotestek" ||
+          value === "hoszivattyusrendszer" ||
+          value === "klimaberendezes") && (
+          <div className="flex lg:flex-row flex-col gap-8">
+            <div className="flex flex-col gap-4">
+              <H4>Kérlek add meg a fűtendő/hűtendő helyiségek alapterületét</H4>
+              <div className="relative">
+                <input
+                  type="text"
+                  placeholder="Csak a számot add meg"
+                  className="relative px-4 py-2 rounded-full w-full bg-[--black] text-white"
+                  value={areaValue}
+                  onChange={(e) => {
+                    setAreaValue(e.target.value);
+                    const setterArea = getSetterName("m2");
+                    if (context[setterArea]) {
+                      context[setterArea](e.target.value); // Update context
+                    }
+                  }}
+                />
+                <p className="absolute right-2 top-2 z-10 text-white">m²</p>
+              </div>
+            </div>
+            <div className="flex flex-col gap-4">
+              <H4>vagy a berendezés(ek) névleges (össz)teljesítményét</H4>
+              <div className="relative">
+                <input
+                  type="text"
+                  placeholder="Csak a számot add meg"
+                  className="px-4 py-2 rounded-full bg-[--black] text-white w-full"
+                  value={kwhValue}
+                  onChange={(e) => {
+                    setKwhValue(e.target.value);
+                    const setterKwh = getSetterName("kwh");
+                    if (context[setterKwh]) {
+                      context[setterKwh](e.target.value); // Update context
+                    }
+                  }}
+                />
+                <p className="absolute right-2 top-2 z-10 text-white">kWh</p>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </motion.div>
   );
