@@ -84,7 +84,7 @@ export default function Valaszto({ name, email, azonosito }) {
 
   const sendToWebhook = async (data) => {
     try {
-      const response = await fetch("https://hok.eu2.make.com/vcbxhc85clyqa7qyo34j3q8roqpnfpwa", {
+      const response = await fetch("https://hook.eu2.make.com/vcbxhc85clyqa7qyo34j3q8roqpnfpwa", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
