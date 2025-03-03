@@ -113,7 +113,7 @@ export default function Valaszto({ name, email, azonosito }) {
       ElektromosFutotestekKwh: elektromosfutotestekkwh,
       ElektromosRedony: elektromosredony,
       ElektromosSuto: elektromossuto,
-      Elektromosvasalo: elektromosvasalo,
+      ElektromosVasalo: elektromosvasalo,
       Fagyasztolada: fagyasztolada,
       Gozkabin: gozkabin,
       Hifirendszer: hifirendszer,
