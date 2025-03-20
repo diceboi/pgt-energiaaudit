@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 129.61 129.61">
+  <defs>
+    <style>
+      .cls-1 {
+        stroke: #fff;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 2px;
+      }
+
+      .cls-1, .cls-2 {
+        fill: none;
+      }
+
+      .cls-2 {
+        stroke-width: 0px;
+      }
+    </style>
+  </defs>
+  <g id="Réteg_1" data-name="Réteg 1">
+    <g>
+      <rect class="cls-2" width="129.61" height="129.61"/>
+      <g>
+        <line class="cls-1" x1="35.78" y1="78.97" x2="40.48" y2="74.28"/>
+        <polyline class="cls-1" points="24.59 90.16 30.58 96.15 40.63 106.21 60.17 86.67 53.92 80.43 50.3 76.8 48.84 75.34"/>
+        <polyline class="cls-1" points="40.48 74.28 35.82 63.43 41.29 57.74 48.84 75.34"/>
+        <rect class="cls-1" x="26.16" y="78.49" width="11.73" height="15.83" transform="translate(70.48 2.66) rotate(45)"/>
+        <polyline class="cls-1" points="50.3 76.8 103.7 23.4 107.32 27.02 53.92 80.42"/>
+        <line class="cls-1" x1="94.9" y1="23.53" x2="102.86" y2="31.49"/>
+        <line class="cls-1" x1="96.66" y1="30.44" x2="104.63" y2="38.41"/>
+        <line class="cls-1" x1="89.75" y1="28.68" x2="97.31" y2="36.24"/>
+        <line class="cls-1" x1="91.51" y1="35.59" x2="99.48" y2="43.57"/>
+        <line class="cls-1" x1="84.6" y1="33.83" x2="92.16" y2="41.39"/>
+        <line class="cls-1" x1="86.35" y1="40.74" x2="94.33" y2="48.72"/>
+        <line class="cls-1" x1="79.44" y1="38.99" x2="87" y2="46.55"/>
+        <line class="cls-1" x1="81.2" y1="45.9" x2="89.17" y2="53.87"/>
+        <line class="cls-1" x1="74.29" y1="44.14" x2="81.85" y2="51.7"/>
+        <line class="cls-1" x1="76.05" y1="51.05" x2="84.02" y2="59.02"/>
+        <line class="cls-1" x1="69.14" y1="49.29" x2="77.1" y2="57.25"/>
+        <line class="cls-1" x1="70.9" y1="56.2" x2="78.87" y2="64.18"/>
+        <line class="cls-1" x1="63.99" y1="54.45" x2="71.94" y2="62.4"/>
+        <line class="cls-1" x1="65.74" y1="61.36" x2="73.72" y2="69.33"/>
+        <line class="cls-1" x1="58.83" y1="59.6" x2="66.79" y2="67.56"/>
+        <line class="cls-1" x1="60.59" y1="66.51" x2="68.56" y2="74.48"/>
+        <line class="cls-1" x1="53.68" y1="64.75" x2="61.64" y2="72.71"/>
+        <line class="cls-1" x1="55.44" y1="71.66" x2="63.41" y2="79.64"/>
+      </g>
+    </g>
+  </g>
+</svg>

@@ -401,7 +401,7 @@ export default function Valaszto({ vezeteknev, keresztnev, email, azonosito }) {
     },
     {
       id: 32,
-      icon: "/kulteri-vilagi.svg",
+      icon: "/kulteri-vilagitas.svg",
       nev: "Kültéri világítás",
       value: "kulterivilagitas",
     },

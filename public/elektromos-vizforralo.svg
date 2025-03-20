@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 129.61 129.61">
+  <defs>
+    <style>
+      .cls-1 {
+        stroke: #fff;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 2px;
+      }
+
+      .cls-1, .cls-2 {
+        fill: none;
+      }
+
+      .cls-2 {
+        stroke-width: 0px;
+      }
+    </style>
+  </defs>
+  <g id="Réteg_1" data-name="Réteg 1">
+    <g>
+      <rect class="cls-2" width="129.61" height="129.61"/>
+      <path class="cls-1" d="M38.98,89.62v-50.85c0-9.37,11.51-16.96,25.71-16.96h0c14.2,0,25.71,7.59,25.71,16.96v50.85"/>
+      <path class="cls-1" d="M35.27,89.78h58.95v15.59c0,2.54-2.06,4.61-4.61,4.61h-49.74c-2.54,0-4.61-2.06-4.61-4.61v-15.59h0Z" transform="translate(129.49 199.76) rotate(180)"/>
+      <path class="cls-1" d="M90.41,38.77h0c7.97,0,14.43,6.47,14.43,14.43v11.67c0,7.97-6.47,14.43-14.43,14.43h0v-40.54h0Z"/>
+      <polyline class="cls-1" points="38.98 49.69 25.52 33.11 40.42 33.11"/>
+      <circle class="cls-1" cx="45.55" cy="99.88" r="2.45"/>
+      <circle class="cls-1" cx="57.04" cy="99.88" r="2.45"/>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 129.61 129.61">
+  <defs>
+    <style>
+      .cls-1 {
+        stroke: #fff;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 2px;
+      }
+
+      .cls-1, .cls-2 {
+        fill: none;
+      }
+
+      .cls-2 {
+        stroke-width: 0px;
+      }
+    </style>
+  </defs>
+  <g id="Réteg_1" data-name="Réteg 1">
+    <g>
+      <rect class="cls-2" width="129.61" height="129.61"/>
+      <g>
+        <rect class="cls-1" x="24.03" y="83.55" width="81.55" height="18.13"/>
+        <polygon class="cls-1" points="82.61 27.93 47 27.93 37 83.55 92.61 83.55 82.61 27.93"/>
+        <rect class="cls-1" x="57.62" y="49.84" width="14.37" height="33.7"/>
+      </g>
+    </g>
+  </g>
+</svg>

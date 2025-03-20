@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 129.61 129.61">
+  <defs>
+    <style>
+      .cls-1 {
+        stroke: #fff;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 2px;
+      }
+
+      .cls-1, .cls-2 {
+        fill: none;
+      }
+
+      .cls-2 {
+        stroke-width: 0px;
+      }
+    </style>
+  </defs>
+  <g id="Réteg_1" data-name="Réteg 1">
+    <g>
+      <rect class="cls-2" width="129.61" height="129.61"/>
+      <g>
+        <path class="cls-1" d="M34.07,88.53v-50.85c0-9.37,8.52-16.96,19.03-16.96h0c10.51,0,19.03,7.59,19.03,16.96v50.85"/>
+        <path class="cls-1" d="M75.45,106.83v2.06H30.74v-15.59c0-2.55,1.56-4.61,3.5-4.61h25.69"/>
+        <rect class="cls-1" x="79.38" y="73.33" width="19.48" height="12.12"/>
+        <rect class="cls-1" x="82.19" y="61.36" width="13.88" height="12.12"/>
+        <path class="cls-1" d="M75.02,91.36c.13.02.26.02.4.02,3.42,0,6.24-2.6,6.6-5.92"/>
+        <path class="cls-1" d="M54.98,88.69h15.86c1.86,0,3.45,1.09,4.18,2.67.28.59.43,1.24.43,1.94v13.53h.14c11.48,0,20.79-9.3,20.79-20.78,0-.2,0-.39-.02-.59"/>
+      </g>
+    </g>
+  </g>
+</svg>
