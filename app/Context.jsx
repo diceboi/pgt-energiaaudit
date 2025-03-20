@@ -5,6 +5,8 @@ import { createContext, useState } from "react";
 export const Context = createContext({
   emailaddress: '',
   azonositonumber: '',
+  vezeteknevvalue: '',
+  keresztnevvalue: '',
   honap: '',
   akvarium: '',
   bojler: '',
@@ -30,6 +32,30 @@ export const Context = createContext({
   kamerarendszer: '',
   laptoppc: '',
   ledvilagitas: '',
+  legtechnika: '',
+  mikrohullamusuto: '',
+  mosogatogep: '',
+  mosogep: '',
+  porszivo: '',
+  riaszto: '',
+  routerinternetmodem: '',
+  szauna: '',
+  szaritogep: '',
+  tv: '',
+  ventilator: '',
+  viztisztito: '',
+  elektromosvizforralo: '',
+  kulterivilagitas: '',
+  elektromoskapunyito: '',
+  kertiszivattyuontozes: '',
+  medenceszivattyu: '',
+  elektromosfunyiro: '',
+  elektromossovenynyiro: '',
+  elektromosautotoltes: '',
+  kertigrill: '',
+  elektromoskertifutotest: '',
+  kertiedencefutes: '',
+  elektromoskertiszerszamok: '',
   egyeni1: '',
   egyeniNev1: '',
   egyeni2: '',
@@ -52,6 +78,8 @@ export const Context = createContext({
   egyeniNev10: '',
   setEmailaddress: () => {},
   setAzonositonumber: () => {},
+  setVezeteknevValue: () => {},
+  setKeresztnevValue: () => {},
   setHonap: () => {},
   setCurrentPage: () => {},
   setAkvarium: () => {},
@@ -78,6 +106,30 @@ export const Context = createContext({
   setKamerarendszer: () => {},
   setLaptoppc: () => {},
   setLedvilagitas: () => {},
+  setLegtechnika: () => {},
+  setMikrohullamusuto: () => {},
+  setMosogatogep: () => {},
+  setMosogep: () => {},
+  setPorszivo: () => {},
+  setRiaszto: () => {},
+  setRouterinternetmodem: () => {},
+  setSzauna: () => {},
+  setSzaritogep: () => {},
+  setTv: () => {},
+  setVentilator: () => {},
+  setViztisztito: () => {},
+  setElektromosvizforralo: () => {},
+  setKulterivilagitas: () => {},
+  setElektromoskapunyito: () => {},
+  setKertiszivattyuontozes: () => {},
+  setMedenceszivattyu: () => {},
+  setElektromosfunyiro: () => {},
+  setElektromossovenynyiro: () => {},
+  setElektromosautotoltes: () => {},
+  setKertigrill: () => {},
+  setElektromoskertifutotest: () => {},
+  setKertiedencefutes: () => {},
+  setElektromoskertiszerszamok: () => {},
   setEgyeni1: () => {},
   setEgyeniNev1: () => {},
   setEgyeni2: () => {},
@@ -103,6 +155,8 @@ export const Context = createContext({
 export default function ContextProvider({ children }) {
   const [emailaddress, setEmailaddress] = useState();
   const [azonositonumber, setAzonositonumber] = useState();
+  const [vezeteknevvalue, setVezeteknevValue] = useState();
+  const [keresztnevvalue, setKeresztnevValue] = useState();
   const [honap, setHonap] = useState()
   const [akvarium, setAkvarium] = useState();
   const [bojler, setBojler] = useState();
@@ -128,6 +182,30 @@ export default function ContextProvider({ children }) {
   const [kamerarendszer, setKamerarendszer] = useState();
   const [laptoppc, setLaptoppc] = useState();
   const [ledvilagitas, setLedvilagitas] = useState();
+  const [legtechnika, setLegtechnika] = useState();
+  const [mikrohullamusuto, setMikrohullamusuto] = useState();
+  const [mosogatogep, setMosogatogep] = useState();
+  const [mosogep, setMosogep] = useState();
+  const [porszivo, setPorszivo] = useState();
+  const [riaszto, setRiaszto] = useState();
+  const [routerinternetmodem, setRouterinternetmodem] = useState();
+  const [szauna, setSzauna] = useState();
+  const [szaritogep, setSzaritogep] = useState();
+  const [tv, setTv] = useState();
+  const [ventilator, setVentilator] = useState();
+  const [viztisztito, setViztisztito] = useState();
+  const [elektromosvizforralo, setElektromosvizforralo] = useState();
+  const [kulterivilagitas, setKulterivilagitas] = useState();
+  const [elektromoskapunyito, setElektromoskapunyito] = useState();
+  const [kertiszivattyuontozes, setKertiszivattyuontozes] = useState();
+  const [medenceszivattyu, setMedenceszivattyu] = useState();
+  const [elektromosfunyiro, setElektromosfunyiro] = useState();
+  const [elektromossovenynyiro, setElektromossovenynyiro] = useState();
+  const [elektromosautotoltes, setElektromosautotoltes] = useState();
+  const [kertigrill, setKertigrill] = useState();
+  const [elektromoskertifutotest, setElektromoskertifutotest] = useState();
+  const [kertiedencefutes, setKertiedencefutes] = useState();
+  const [elektromoskertiszerszamok, setElektromoskertiszerszamok] = useState();
   const [egyeni1, setEgyeni1] = useState();
   const [egyeniNev1, setEgyeniNev1] = useState();
   const [egyeni2, setEgyeni2] = useState();
@@ -153,6 +231,8 @@ export default function ContextProvider({ children }) {
     <Context.Provider value={{
       emailaddress,
       azonositonumber,
+      vezeteknevvalue,
+      keresztnevvalue,
       honap,
       akvarium,
       bojler,
@@ -178,6 +258,30 @@ export default function ContextProvider({ children }) {
       kamerarendszer,
       laptoppc,
       ledvilagitas,
+      legtechnika,
+      mikrohullamusuto,
+      mosogatogep,
+      mosogep,
+      porszivo,
+      riaszto,
+      routerinternetmodem,
+      szauna,
+      szaritogep,
+      tv,
+      ventilator,
+      viztisztito,
+      elektromosvizforralo,
+      kulterivilagitas,
+      elektromoskapunyito,
+      kertiszivattyuontozes,
+      medenceszivattyu,
+      elektromosfunyiro,
+      elektromossovenynyiro,
+      elektromosautotoltes,
+      kertigrill,
+      elektromoskertifutotest,
+      kertiedencefutes,
+      elektromoskertiszerszamok,
       egyeni1,
       egyeniNev1,
       egyeni2,
@@ -200,6 +304,8 @@ export default function ContextProvider({ children }) {
       egyeniNev10,
       setEmailaddress,
       setAzonositonumber,
+      setVezeteknevValue,
+      setKeresztnevValue,
       setHonap,
       setAkvarium,
       setBojler,
@@ -225,6 +331,30 @@ export default function ContextProvider({ children }) {
       setKamerarendszer,
       setLaptoppc,
       setLedvilagitas,
+      setLegtechnika,
+      setMikrohullamusuto,
+      setMosogatogep,
+      setMosogep,
+      setPorszivo,
+      setRiaszto,
+      setRouterinternetmodem,
+      setSzauna,
+      setSzaritogep,
+      setTv,
+      setVentilator,
+      setViztisztito,
+      setElektromosvizforralo,
+      setKulterivilagitas,
+      setElektromoskapunyito,
+      setKertiszivattyuontozes,
+      setMedenceszivattyu,
+      setElektromosfunyiro,
+      setElektromossovenynyiro,
+      setElektromosautotoltes,
+      setKertigrill,
+      setElektromoskertifutotest,
+      setKertiedencefutes,
+      setElektromoskertiszerszamok,
       setEgyeni1,
       setEgyeniNev1,
       setEgyeni2,

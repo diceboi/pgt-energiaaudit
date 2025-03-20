@@ -51,6 +51,7 @@ export default function ValasztoTile({
     // Clear the stored values in the context
     if (setContext) {
       setContext("");
+      setIsOn(false);
     }
 
     const setterArea = getSetterName("m2");
@@ -111,7 +112,7 @@ export default function ValasztoTile({
         bounce: 0.8,
       }}
       className={`relative rounded-2xl flex flex-col transition-all duration-400 overflow-hidden shadow-md ${
-        isOn || hasDataInContext ? "bg-[--green-bg-tile]" : "bg-[--white-bg]"
+        hasDataInContext ? "bg-[--green-bg-tile]" : "bg-[--white-bg]"
       }`}
     >
       <div className="flex flex-row items-center justify-between w-full border-b border-[--antracit] pr-4 pl-2 py-3">
@@ -183,7 +184,7 @@ export default function ValasztoTile({
           value === "klimaberendezes") && (
           <div className="flex lg:flex-row flex-col gap-8">
             <div className="flex flex-col gap-4">
-              <H4>Kérlek add meg a fűtendő/hűtendő helyiségek alapterületét</H4>
+              <H4>Kérlek add meg a fűtött/hűtött helyiségek alapterületét</H4>
               <div className="relative">
                 <input
                   type="text"
@@ -217,7 +218,7 @@ export default function ValasztoTile({
                     }
                   }}
                 />
-                <p className="absolute right-2 top-2 z-10 text-white">kWh</p>
+                <p className="absolute right-2 top-2 z-10 text-white">kW</p>
               </div>
             </div>
           </div>

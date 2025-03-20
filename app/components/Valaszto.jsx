@@ -12,14 +12,18 @@ import { TbBulb } from "react-icons/tb";
 import H2 from "./Typo/H2";
 import { Context } from "../Context";
 import { TbPlus } from "react-icons/tb";
+import { toast } from "sonner";
+import { replace } from "lodash";
 
-export default function Valaszto({ name, email, azonosito }) {
+export default function Valaszto({ vezeteknev, keresztnev, email, azonosito }) {
 
   const context = useContext(Context);
 
   const {
       emailaddress,
       azonositonumber,
+      vezeteknevvalue,
+      keresztnevvalue,
       honap,
       akvarium,
       bojler,
@@ -45,6 +49,30 @@ export default function Valaszto({ name, email, azonosito }) {
       kamerarendszer,
       laptoppc,
       ledvilagitas,
+      legtechnika,
+      mikrohullamusuto,
+      mosogatogep,
+      mosogep,
+      porszivo,
+      riaszto,
+      routerinternetmodem,
+      szauna,
+      szaritogep,
+      tv,
+      ventilator,
+      viztisztito,
+      elektromosvizforralo,
+      kulterivilagitas,
+      elektromoskapunyito,
+      kertiszivattyuontozes,
+      medenceszivattyu,
+      elektromosfunyiro,
+      elektromossovenynyiro,
+      elektromosautotoltes,
+      kertigrill,
+      elektromoskertifutotest,
+      kertiedencefutes,
+      elektromoskertiszerszamok,
       egyeni1,
       egyeniNev1,
       egyeni2,
@@ -67,6 +95,8 @@ export default function Valaszto({ name, email, azonosito }) {
       egyeniNev10,
       setEmailaddress,
       setAzonositonumber,
+      setVezeteknevValue,
+      setKeresztnevValue,
       setHonap,
   } = useContext(Context)
 
@@ -77,6 +107,14 @@ export default function Valaszto({ name, email, azonosito }) {
 
     if (azonosito) {
       setAzonositonumber(azonosito)
+    }
+
+    if (vezeteknev) {
+      setVezeteknevValue(vezeteknev)
+    }
+
+    if (keresztnev) {
+      setKeresztnevValue(keresztnev)
     }
   });
 
@@ -92,6 +130,9 @@ export default function Valaszto({ name, email, azonosito }) {
 
       if (!response.ok) {
         console.error("Failed to send data", await response.text());
+      } else {
+        toast.success("Sikeres beküldés!")
+        window.location.replace("https://profigreentech.hu/koszonjuk-energiaaudit/")
       }
     } catch (error) {
       console.error("Error sending data", error);
@@ -126,9 +167,33 @@ export default function Valaszto({ name, email, azonosito }) {
       Klimaberendezes: klimaberendezes,
       KlimaberendezesM2: klimaberendezesm2,
       KlimaberendezesKwh: klimaberendezeskwh,
-      KameraRendszer: kamerarendszer,
+      Kamerarendszer: kamerarendszer,
       LaptopPc: laptoppc,
       LedVilagitas: ledvilagitas,
+      Legtechnika: legtechnika,
+      MikrohullamuSuto: mikrohullamusuto,
+      Mosogatogep: mosogatogep,
+      Mosogep: mosogep,
+      Porszivo: porszivo,
+      Riaszto: riaszto,
+      RouterinternetModem: routerinternetmodem,
+      Szauna: szauna,
+      Szaritogep: szaritogep,
+      TvLcdled: tv,
+      Ventilator: ventilator,
+      Viztisztito: viztisztito,
+      ElektromosVizforralo: elektromosvizforralo,
+      KulteriVilagitas: kulterivilagitas,
+      ElektromosKapunyito: elektromoskapunyito,
+      KertiSzivattyuOntozeshez: kertiszivattyuontozes,
+      MedenceSzivattyu: medenceszivattyu,
+      ElektromosFunyiro: elektromosfunyiro,
+      ElektromosSovenynyiro: elektromossovenynyiro,
+      ElektromosAutoToltese: elektromosautotoltes,
+      KertiGrillElektromos: kertigrill,
+      ElektromosKertiFutotest: elektromoskertifutotest,
+      KertiMedenceFutese: kertiedencefutes,
+      ElektromosKertiSzerszamok: elektromoskertiszerszamok,
       EgyeniNev1: egyeniNev1,
       EgyeniErtek1: egyeni1,
       EgyeniNev2:egyeniNev2,
@@ -160,7 +225,7 @@ export default function Valaszto({ name, email, azonosito }) {
   };
 
 
-  const MAX_TILES = 28;
+  const MAX_TILES = 52;
   const [tiles, setTiles] = useState([
     {
       id: 1,
@@ -237,9 +302,169 @@ export default function Valaszto({ name, email, azonosito }) {
       nev: "Klímaberendezés (hűtés/fűtés)",
       value: "klimaberendezes",
     },
-    { id: 16, icon: "/kamera.svg", nev: "Kamera rendszer", value: "kamerarendszer" },
-    { id: 17, icon: "/pc.svg", nev: "Laptop/PC", value: "laptoppc" },
-    { id: 18, icon: "/led.svg", nev: "LED világítás (összesen)", value: "ledvilagitas" },
+    { 
+      id: 16, 
+      icon: "/kamera.svg", 
+      nev: "Kamera rendszer", 
+      value: "kamerarendszer" 
+    },
+    { 
+      id: 17, 
+      icon: "/pc.svg", 
+      nev: "Laptop/PC", 
+      value: "laptoppc" 
+    },
+    { 
+      id: 18, 
+      icon: "/led.svg", 
+      nev: "LED világítás (összesen)", 
+      value: "ledvilagitas" 
+    },
+    {
+      id: 19,
+      icon: "/legtechnika.svg",
+      nev: "Légtechnika",
+      value: "legtechnika",
+    },
+    {
+      id: 20,
+      icon: "/mikrohullamu-suto.svg",
+      nev: "Mikrohullámú sütő",
+      value: "mikrohullamusuto",
+    },
+    {
+      id: 21,
+      icon: "/mosogatogep.svg",
+      nev: "Mosogatógép",
+      value: "mosogatogep",
+    },
+    {
+      id: 22,
+      icon: "/mosogep.svg",
+      nev: "Mosógép",
+      value: "mosogep",
+    },
+    {
+      id: 23,
+      icon: "/porszivo.svg",
+      nev: "Porszívó",
+      value: "porszivo",
+    
+    },
+    {
+      id: 24,
+      icon: "/riaszto.svg",
+      nev: "Riasztó",
+      value: "riaszto",
+    },
+    {
+      id: 25,
+      icon: "/router.svg",
+      nev: "Router/Internet modem",
+      value: "routerinternetmodem",
+    },
+    {
+      id: 26,
+      icon: "/szauna.svg",
+      nev: "Szauna",
+      value: "szauna",
+    },
+    {
+      id: 27,
+      icon: "/szaritogep.svg",
+      nev: "Szarítógép",
+      value: "szaritogep",
+    },
+    {
+      id: 28,
+      icon: "/tv.svg",
+      nev: "TV (LCD/LED)",
+      value: "tv",
+    },
+    {
+      id: 29,
+      icon: "/ventilator.svg",
+      nev: "Ventilátor",
+      value: "ventilator",
+    },
+    {
+      id: 30,
+      icon: "/viztisztito.svg",
+      nev: "Víztisztító",
+      value: "viztisztito",
+    },
+    {
+      id: 31,
+      icon: "/elektromos-vizforralo.svg",
+      nev: "Elektromos vízforraló",
+      value: "elektromosvizforralo",
+    },
+    {
+      id: 32,
+      icon: "/kulteri-vilagi.svg",
+      nev: "Kültéri világítás",
+      value: "kulterivilagitas",
+    },
+    {
+      id: 33,
+      icon: "/elektromos-kapunyito.svg",
+      nev: "Elektromos kapunyitó",
+      value: "elektromoskapunyito",
+    },
+    {
+      id: 34,
+      icon: "/kerti-szivattyu-ontozeshez.svg",
+      nev: "Kerti szivattyú öntözéshez",
+      value: "kertiszivattyuontozes",
+    },
+    {
+      id: 35,
+      icon: "/medence-szivattyu.svg",
+      nev: "Medence szivattyú",
+      value: "medenceszivattyu",
+    },
+    {
+      id: 36,
+      icon: "/elektromos-funyiro.svg",
+      nev: "Elektromos fűnyíró",
+      value: "elektromosfunyiro",
+    },
+    {
+      id: 37,
+      icon: "/elektromos-sovenynyiro.svg",
+      nev: "Elektromos sövénynyíró",
+      value: "elektromossovenynyiro",
+    },
+    {
+      id: 38,
+      icon: "/elektromos-autotoltes.svg",
+      nev: "Elektromos autótöltés",
+      value: "elektromosautotoltes",
+    },
+    {
+      id: 39,
+      icon: "/kerti-grill-elektromos.svg",
+      nev: "Kerti grill elektromos",
+      value: "kertigrill",
+    },
+    {
+      id: 40,
+      icon: "/elektromos-kerti-futotest.svg",
+      nev: "Elektromos kerti fűtőtest",
+      value: "elektromoskertifutotest",
+    },
+    {
+      id: 41,
+      icon: "/kerti-medence-futes.svg",
+      nev: "Kerti medence fűtés",
+      value: "kertiedencefutes",
+    },
+    {
+      id: 42,
+      icon: "/elektromos-kerti-szerszamok.svg",
+      nev: "Elektromos kerti szerszámok",
+      value: "elektromoskertiszerszamok",
+    },
   ]);
 
 
@@ -274,10 +499,10 @@ export default function Valaszto({ name, email, azonosito }) {
       <div className="flex flex-col container m-auto lg:py-20 py-8 gap-16 text-white">
         <div className="flex flex-col gap-8">
           <div className="flex flex-row lg:justify-center gap-4 ">
-            {emailaddress && name ? (
+            {emailaddress && keresztnev ? (
               <div className="flex flex-row gap-4">
                 <H1>Üdv</H1>
-                <H1 classname={"text-[--yellow]"}> {name}</H1>
+                <H1 classname={"text-[--yellow]"}> {keresztnev}</H1>
               </div>
             ):(
               <div className="flex flex-col gap-8 items-center p-8 rounded-3xl bg-[--yellow] text-[--black] text-center mb-16">
@@ -345,15 +570,14 @@ export default function Valaszto({ name, email, azonosito }) {
           <div className="flex flex-row gap-4 items-start justify-center w-fit self-center bg-[--white-bg] p-4 rounded-2xl lg:w-1/2">
             <TbBulb className="min-w-8 h-auto text-[--green]" />
             <Paragraph classname={""}>
-              Az oldal jobb oldalán, a kis zöld választógombbal tudod kijelölni,
-              majd konfigurálni a kívánt eszközöket.
+              Kattints az eszkoz nevére, hogy menyisd vagy becsukd az adott eszközhöz tartozó panelt. Ha megjelöltél benne időpontokat, a panel színe zöldre fog változni. Ha úgy döntesz, hogy mégsincs szükséged az adott eszközre, csak kattints a jobb oldalon található gombra, hogy kikapcsold.
             </Paragraph>
           </div>
           <div className="grid grid-cols-1 gap-4 mt-16">
             {tiles.map((tile) => (
               <ValasztoTile
                 key={tile.id}
-                icon={tile.icon}
+                icon={tile.icon || ''}
                 nev={tile.nev}
                 egyeninev={''}
                 value={tile.value}

@@ -10,7 +10,7 @@ export default function Home(props) {
 
   return (
     <section>
-      <Valaszto name={searchParams.name} email={searchParams.email} azonosito={searchParams.azonosito}/>
+      <Valaszto vezeteknev={searchParams.vezeteknev} keresztnev={searchParams.keresztnev} email={searchParams.email} azonosito={searchParams.azonosito}/>
     </section>
   );
 }
