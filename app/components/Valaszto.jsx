@@ -14,6 +14,7 @@ import { Context } from "../Context";
 import { TbPlus } from "react-icons/tb";
 import { toast } from "sonner";
 import { replace } from "lodash";
+import { TbQuestionMark } from "react-icons/tb";
 
 export default function Valaszto({ vezeteknev, keresztnev, email, azonosito }) {
 
@@ -67,7 +68,6 @@ export default function Valaszto({ vezeteknev, keresztnev, email, azonosito }) {
       kertiszivattyuontozes,
       medenceszivattyu,
       elektromosfunyiro,
-      elektromossovenynyiro,
       elektromosautotoltes,
       kertigrill,
       elektromoskertifutotest,
@@ -93,6 +93,11 @@ export default function Valaszto({ vezeteknev, keresztnev, email, azonosito }) {
       egyeniNev9,
       egyeni10,
       egyeniNev10,
+      openPopup,
+      setOpenPopup,
+      togglePopup,
+      form,
+      setForm,
       setEmailaddress,
       setAzonositonumber,
       setVezeteknevValue,
@@ -188,7 +193,6 @@ export default function Valaszto({ vezeteknev, keresztnev, email, azonosito }) {
       KertiSzivattyuOntozeshez: kertiszivattyuontozes,
       MedenceSzivattyu: medenceszivattyu,
       ElektromosFunyiro: elektromosfunyiro,
-      ElektromosSovenynyiro: elektromossovenynyiro,
       ElektromosAutoToltese: elektromosautotoltes,
       KertiGrillElektromos: kertigrill,
       ElektromosKertiFutotest: elektromoskertifutotest,
@@ -431,36 +435,30 @@ export default function Valaszto({ vezeteknev, keresztnev, email, azonosito }) {
     },
     {
       id: 37,
-      icon: "/elektromos-sovenynyiro.svg",
-      nev: "Elektromos sövénynyíró",
-      value: "elektromossovenynyiro",
-    },
-    {
-      id: 38,
       icon: "/elektromos-autotoltes.svg",
       nev: "Elektromos autótöltés",
       value: "elektromosautotoltes",
     },
     {
-      id: 39,
+      id: 38,
       icon: "/kerti-grill-elektromos.svg",
       nev: "Kerti grill elektromos",
       value: "kertigrill",
     },
     {
-      id: 40,
+      id: 39,
       icon: "/elektromos-kerti-futotest.svg",
       nev: "Elektromos kerti fűtőtest",
       value: "elektromoskertifutotest",
     },
     {
-      id: 41,
+      id: 40,
       icon: "/kerti-medence-futes.svg",
       nev: "Kerti medence fűtés",
       value: "kertiedencefutes",
     },
     {
-      id: 42,
+      id: 41,
       icon: "/elektromos-kerti-szerszamok.svg",
       nev: "Elektromos kerti szerszámok",
       value: "elektromoskertiszerszamok",
@@ -521,25 +519,15 @@ export default function Valaszto({ vezeteknev, keresztnev, email, azonosito }) {
                 </div>
             )}
           </div>
-          <H3 classname={"lg:text-center lg:w-1/2 lg:self-center"}>
-            Ezen az oldalon a te energiafelhasználásodat vizsgáluk meg annak
-            érdekében, hogy a napelem rendszeredhez a legoptimálisabb
-            akkumulátort tudjuk ajánlani.
+          <H3 classname={"lg:w-8/12 lg:self-center text-center"}>
+          Az alábbi kérdőív kitöltésével segítesz nekünk abban, hogy pontosan megértsük az otthonod energiafogyasztási szokásait. Így egy olyan személyre szabott megoldást tudunk ajánlani, amivel optimalizálhatod a napelemes rendszered teljesítményét, és megfelelő nagyságú akkumulátor kapacitást javasolhatunk Neked. A kitöltés mindössze 10-15 percet vesz igénybe, és a végén egyedi kiértékelést küldünk neked!
           </H3>
         </div>
-        <div className="flex flex-col gap-8 bg-[--white-bg] w-full h-auto rounded-3xl shadow-md lg:p-8 p-4">
-          <H2 classname={"text-center lg:w-1/2 self-center text-[--yellow]"}>
-            Melyik hónapra optimalizáljuk az akkumulátor használatot?
+        <div className="relative flex flex-col gap-8 bg-[--white-bg] w-full h-auto rounded-3xl shadow-md lg:p-8 p-4">
+          <H2 classname={"lg:text-center lg:w-1/2 w-10/12 lg:self-center text-[--yellow]"}>
+            Kérlek válaszd ki, melyik hónap energia felhasználását fogod megadni
           </H2>
-          <div className="flex flex-row gap-4 items-start justify-center w-fit self-center bg-[--white-bg] p-4 rounded-2xl lg:w-1/2">
-            <TbBulb className="min-w-8 h-auto text-[--green] " />
-            <Paragraph classname={""}>
-              Válaszdd ki azt a hónapot, amikor számodra a legfontosabb, hogy az
-              akkumulátor optimálisan működjön! Ez segít abban, hogy a
-              rendszered a kiválasztott időszakban a lehető legjobban
-              illeszkedjen az energiaigényeidhez.
-            </Paragraph>
-          </div>
+          <TbQuestionMark onClick={() => {togglePopup('honap'); setForm('honap')}} className="absolute right-8 top-8 min-w-8 h-auto text-[--green] border-2 border-[--green] rounded-full p-1 cursor-pointer"/>
 
           <select
             name="honap"
@@ -562,17 +550,12 @@ export default function Valaszto({ vezeteknev, keresztnev, email, azonosito }) {
             <option value="December">December</option>
           </select>
         </div>
-        <div className="flex flex-col gap-4 bg-[--white-bg] w-full h-auto rounded-3xl shadow-md lg:p-8 p-4">
-          <H2 classname={"text-center lg:w-1/2 self-center text-[--yellow]"}>
+        <div className="relative flex flex-col gap-4 bg-[--white-bg] w-full h-auto rounded-3xl shadow-md lg:p-8 p-4">
+          <H2 classname={"lg:text-center lg:w-1/2 w-10/12 lg:self-center text-[--yellow]"}>
             Jelöld meg azokat az eszközökek amiket napi szinten használsz a
             háztartásodban.
           </H2>
-          <div className="flex flex-row gap-4 items-start justify-center w-fit self-center bg-[--white-bg] p-4 rounded-2xl lg:w-1/2">
-            <TbBulb className="min-w-8 h-auto text-[--green]" />
-            <Paragraph classname={""}>
-              Kattints az eszkoz nevére, hogy menyisd vagy becsukd az adott eszközhöz tartozó panelt. Ha megjelöltél benne időpontokat, a panel színe zöldre fog változni. Ha úgy döntesz, hogy mégsincs szükséged az adott eszközre, csak kattints a jobb oldalon található gombra, hogy kikapcsold.
-            </Paragraph>
-          </div>
+          <TbQuestionMark onClick={() => {togglePopup('nap'); setForm('nap')}} className="absolute right-8 top-8 min-w-8 h-auto text-[--green] border-2 border-[--green] rounded-full p-1 cursor-pointer"/>
           <div className="grid grid-cols-1 gap-4 mt-16">
             {tiles.map((tile) => (
               <ValasztoTile
