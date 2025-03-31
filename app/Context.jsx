@@ -532,7 +532,7 @@ export default function ContextProvider({ children }) {
                   Szerkesztés<br></br>
                 </H3>
                 <Paragraph>
-                  Beküldés előtt bármikor módosíthatod az adatokat. Az egyszerűség kedvéért azoknál a fogyasztóknál ahol megjelöltél órákat, ott a csempe zöld színre vált. Ha a fogyasztó nevére ikonjára vagy a világosszürke/zöld sávra kattintasz, le tudod nyitni és vissza is tudod csukni az adott csempét, hogy ne legyen zavaró. Amennyiben a jobb szélén található kis "csúszka" gombra kattintasz, az töröl minden adatot az adott eszköznél, és alaphelyzetbe állítja azt.
+                  Beküldés előtt bármikor módosíthatod az adatokat. Az egyszerűség kedvéért azoknál a fogyasztóknál ahol megjelöltél órákat, ott a csempe zöld színre vált. Ha a fogyasztó nevére ikonjára vagy a világosszürke/zöld sávra kattintasz, le tudod nyitni és vissza is tudod csukni az adott csempét, hogy ne legyen zavaró. Amennyiben a jobb szélén található kis &apos;csúszka&apos; gombra kattintasz, az töröl minden adatot az adott eszköznél, és alaphelyzetbe állítja azt.
                 </Paragraph>
 
                 <H3 classname={"flex flex-nowrap items-start gap-2"}>
@@ -540,7 +540,7 @@ export default function ContextProvider({ children }) {
                   Egyedi eszközök<br></br>
                 </H3>
                 <Paragraph>
-                  10db egyedi eszközt is meg tudsz adni az "+ Egyéb eszköz hozzáadása" gombbal. Itt az eszköz nevét, és a használati órákat kell megadnod hasonló módon, mint a listázott eszközöknél. Ha szeretnél extrán segíteni nekünk, a név után plusszba tedd oda a fogyasztást is.
+                  10db egyedi eszközt is meg tudsz adni az &apos;+ Egyéb eszköz hozzáadása&apos; gombbal. Itt az eszköz nevét, és a használati órákat kell megadnod hasonló módon, mint a listázott eszközöknél. Ha szeretnél extrán segíteni nekünk, a név után plusszba tedd oda a fogyasztást is.
                 </Paragraph>
 
               </div>
